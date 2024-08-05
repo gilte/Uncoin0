@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequência de Nomes e Animais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        #inputSequence {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sequência de Nomes e Animais</h1>
+    <input type="text" id="inputSequence" placeholder="Digite a sequência de caracteres">
+    <button onclick="generateSequence()">Gerar Sequência</button>
+    <p id="sequence"></p>
+
+    <script>
+        const dictionary = {
+            "A": { person: "Ana" },
+            "B": { person: "Beatriz" },
+            "C": { person: "Carlos" },
+            "D": { person: "Daniela" },
+            "E": { person: "Eduardo" },
+            "F": { person: "Fernanda" },
+            "G": { person: "Gabriel" },
+            "H": { person: "Helena" },
+            "I": { person: "Igor" },
+            "J": { person: "João" },
+            "K": { person: "Karla" },
+            "L": { person: "Lucas" },
+            "M": { person: "Maria" },
+            "N": { person: "Nina" },
+            "O": { person: "Otávio" },
+            "P": { person: "Pedro" },
+            "Q": { person: "Quirino" },
+            "R": { person: "Rita" },
+            "S": { person: "Sofia" },
+            "T": { person: "Tiago" },
+            "U": { person: "Uriel" },
+            "V": { person: "Vitória" },
+            "W": { person: "William" },
+            "X": { person: "Xavier" },
+            "Y": { person: "Yara" },
+            "Z": { person: "Zélia" },
+            "a": { animal: "anta" },
+            "b": { animal: "baleia" },
+            "c": { animal: "cachorro" },
+            "d": { animal: "dromedário" },
+            "e": { animal: "elefante" },
+            "f": { animal: "foca" },
+            "g": { animal: "gato" },
+            "h": { animal: "hamster" },
+            "i": { animal: "iguana" },
+            "j": { animal: "jacaré" },
+            "k": { animal: "kiwi" },
+            "l": { animal: "leão" },
+            "m": { animal: "macaco" },
+            "n": { animal: "naja" },
+            "o": { animal: "ornitorrinco" },
+            "p": { animal: "panda" },
+            "q": { animal: "quati" },
+            "r": { animal: "rinoceronte" },
+            "s": { animal: "suricato" },
+            "t": { animal: "tigre" },
+            "u": { animal: "urso" },
+            "v": { animal: "vaca" },
+            "w": { animal: "wombat" },
+            "x": { animal: "xexéu" },
+            "y": { animal: "yak" },
+            "z": { animal: "zebra" },
+            "0": { number: "zero" },
+            "1": { number: "um" },
+            "2": { number: "dois" },
+            "3": { number: "três" },
+            "4": { number: "quatro" },
+            "5": { number: "cinco" },
+            "6": { number: "seis" },
+            "7": { number: "sete" },
+            "8": { number: "oito" },
+            "9": { number: "nove" }
+        };
+
+        function generateSequence() {
+            const input = document.getElementById('inputSequence').value;
+            const sequenceContainer = document.getElementById('sequence');
+            sequenceContainer.innerHTML = '';
+
+            let result = [];
+
+            input.split('').forEach(char => {
+                const item = dictionary[char] || {};
+                
+                if (item.person) {
+                    result.push(item.person);
+                }
+
+                if (item.animal) {
+                    result.push(item.animal);
+                }
+
+                if (item.number) {
+                    result.push(item.number);
+                }
+            });
+
+            // Exibir resultado
+            sequenceContainer.textContent = result.join(', ');
+        }
+    </script>
+</body>
+</html>
